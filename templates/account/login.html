@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static crispy_forms_tags %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row m-5">
+        <div class="col-12">
+            <div class="card text-white bg-primary">
+              <div class="card-body">
+                <h4 class="card-title text-center">Welcome to Clinix</h4>
+                <form method="post">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <div class="col-12 d-flex justify-content-center">
+                        <button type="submit" class="btn col-4 btn-success  btn-lg btn-block">LOGIN</button>
+                    </div>
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static crispy_forms_tags %}
+
+{% block title %}SIGNUP{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row m-5">
+        <div class="col-12">
+            <div class="card text-white bg-primary">
+              <div class="card-body">
+                <h4 class="card-title text-center">Welcome to Clinix</h4>
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    {% crispy form %}
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

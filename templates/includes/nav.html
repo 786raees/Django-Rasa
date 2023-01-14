@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Clinix</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        {% if request.user.is_authenticated %}
+          
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Chat
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Appointments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </li>
+        </ul>
+        <form class="">
+            <ul class="navbar-nav me-auto d-flex">
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'account_login' %}">{{request.user.user_type}} {{request.user}}
+                    <span class="visually-hidden">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+            </li>
+          </ul>
+            </form>
+        {% else %}
+         
+        <ul class="navbar-nav me-auto">
+        </ul>
+          <form class="">
+            <ul class="navbar-nav me-auto d-flex">
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'account_login' %}">Login
+                    <span class="visually-hidden">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_signup' %}">Signup</a>
+            </li>
+          </ul>
+            </form>
+        {% endif %}
+
+      </div>
+    </div>
+</nav>

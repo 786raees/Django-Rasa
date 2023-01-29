@@ -4,5 +4,5 @@ db.sqlite3
 .vscode
 .kolo
 cache
-postgresql
+postgresql/data/*
 *.tar.gz

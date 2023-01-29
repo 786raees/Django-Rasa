@@ -5,4 +5,5 @@ db.sqlite3
 .kolo
 cache
 postgresql/data/*
+!postgresql/data/init
 *.tar.gz

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock title %}
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center">Medical History</h1>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Personal Information</h3>
+        <table class="table">
+          <tr>
+            <td>Name:</td>
+            <td>John Doe</td>
+          </tr>
+          <tr>
+            <td>Age:</td>
+            <td>25</td>
+          </tr>
+          <tr>
+            <td>Gender:</td>
+            <td>Male</td>
+          </tr>
+          <tr>
+            <td>Contact:</td>
+            <td>123-456-7890</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <h3>Medical Information</h3>
+        <table class="table">
+          <tr>
+            <td>Allergies:</td>
+            <td>Penicillin</td>
+          </tr>
+          <tr>
+            <td>Chronic Conditions:</td>
+            <td>Asthma</td>
+          </tr>
+          <tr>
+            <td>Medications:</td>
+            <td>Ibuprofen, Albuterol</td>
+          </tr>
+          <tr>
+            <td>Last Physical Exam:</td>
+            <td>01/01/2022</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <hr>
+    <h3>Medical History</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Visit Reason</th>
+          <th>Diagnosis</th>
+          <th>Prescription</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>01/01/2022</td>
+          <td>Sore throat</td>
+          <td>Strep throat</td>
+          <td>Amoxicillin</td>
+        </tr>
+        <tr>
+          <td>01/15/2022</td>
+          <td>Chest congestion</td>
+          <td>Bronchitis</td>
+          <td>Azithromycin</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+{% endblock content %}

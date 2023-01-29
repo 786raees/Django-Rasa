@@ -5,7 +5,7 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/usr/src/app/
-      - ./env:/usr/src/app/.env
+      - ./.env:/usr/src/app/.env
     ports:
       - 80:8000
     depends_on:
@@ -27,14 +27,13 @@ services:
       - "5432:5432"
     volumes:
       - ./postgresql/data:/var/lib/postgresql/data
+      - ./.env:/usr/src/app/.env
 
   rasa:
-    build: .
-    command: rasa run --enable-api -p 5005 --cors "*"
-    volumes:
-      - .:/usr/src/app/
-      - ./env:/usr/src/app/.env
+    image: rasa/rasa:3.4.2-full
     ports:
       - 5005:5005
-    depends_on:
-      - pgdb
+    volumes:
+      - ./rasa_chat:/app
+    command:
+      - run

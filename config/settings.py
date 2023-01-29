@@ -43,7 +43,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 MIDDLEWARE = [
-    "kolo.middleware.KoloMiddleware",
+    # "kolo.middleware.KoloMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",

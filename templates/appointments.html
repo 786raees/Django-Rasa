@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Patient</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Appointment Date</th>
+      <th scope="col">Appointment Time</th>
+      <th scope="col">Status</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for appointment in appointments %}
+    <tr>
+      <td>{{ appointment.patient }}</td>
+      <td>{{ appointment.phone_number }}</td>
+      <td>{{ appointment.appointment_date }}</td>
+      <td>{{ appointment.appointment_time }}</td>
+      <td>
+        {% if appointment.approved %}
+        <span class="text-white rounded p-1 bg-success">Approved</span>
+        {% elif appointment.reject %}
+        <span class="text-white rounded p-1 bg-danger">Rejected</span>
+        {% else %}
+        <span class="text-white rounded p-1 bg-info">Pending</span>
+        {% endif %}
+      </td>
+      <td>
+        {% if request.user.user_type == "doctor" %}
+        <a class="btn btn-success" href="{% url 'appointments:approve_appointment' appointment.id %}">Approve</a>
+        <a class="btn btn-danger" href="{% url 'appointments:reject_appointment' appointment.id %}">Reject</a>
+        {% else %}
+        <a class="btn btn-danger" href="{% url 'appointments:delete_appointment' appointment.id %}">Delete</a>
+        {% endif %}
+      </td>
+    </tr>
+    {% empty %}
+    <td colspan="6" class="text-center">
+      No data Available
+    </td>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+{% endblock content %}

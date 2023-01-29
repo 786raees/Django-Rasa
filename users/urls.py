@@ -4,5 +4,5 @@ from . import views as users_views
 app_name = "users"
 
 urlpatterns = [
-    # path("", users_views.home, name="home")
+    path('patients/', users_views.patient_list, name='patient_list'),
 ]

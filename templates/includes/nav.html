@@ -13,11 +13,24 @@
               <span class="visually-hidden">(current)</span>
             </a>
           </li>
+          
+          {% if request.user.user_type == "doctor" %}
           <li class="nav-item">
-            <a class="nav-link" href="#">Appointments</a>
+            <a class="nav-link" href="{% url 'appointments:appointments' %}">Appointments</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link" href="{% url 'users:patient_list' %}">Patients</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'appointments:appointments' request.user.id %}">Appointments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'appointments:book_appointment' %}">Book Appointment</a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'chatbot:medical_history' %}">Medical History</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>

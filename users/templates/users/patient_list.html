@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Appointment Date</th>
+        <th>Appointment Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for patient in patients %}
+      <tr>
+        <td>{{ patient.id }}</td>
+        <td><a href="{% url 'appointments:appointments' patient.id %}">{{ patient.get_full_name }}</a></td>
+        <td>{{ patient.email }}</td>
+        <td>{{ patient.id_number }}</td>
+        <td>{{ patient.appointment_set.last.appointment_date }}</td>
+        <td>{{ patient.appointment_set.last.appointment_time }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endblock content %}

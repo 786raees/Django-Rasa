@@ -40,4 +40,5 @@ services:
       - --enable-api
       - --cors
       - "*"
-      - --debug
+      # enable debug mode
+      # - --debug

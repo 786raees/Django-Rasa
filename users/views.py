@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
+from .models import AllUser
 
-@login_required
-def home(request):
-    return render(request, 'users/home.html')
+def patient_list(request):
+    patients = AllUser.objects.exclude(user_type="doctor")
+    return render(request, 'users/patient_list.html', {'patients': patients})

@@ -37,3 +37,7 @@ services:
       - ./rasa_chat:/app
     command:
       - run
+      - --enable-api
+      - --cors
+      - "*"
+      - --debug
